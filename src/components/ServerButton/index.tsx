@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import React from 'react';
 
 import LogoImg from '../../assets/Logo.svg'
 
