@@ -35,7 +35,7 @@ export const Button = styled.button<Props>`
     top: calc(50% - 4.5px);
 
     background-color: var(--white);
-    border-radius: 50%50%;
+    border-radius: 50%;
 
     content: '';
     display: ${props => props.hasNotifications ? 'inline' : 'none'};
