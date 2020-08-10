@@ -6,14 +6,15 @@ import { Container, Messages, InputWrapper, Input, InputIcon } from './styles';
 import { useSelector } from 'react-redux';
 
 interface StateProps {
-  channel: {
+  channels: {
+    channel: {
     name: string;
-    description: string;
+    }
   }
 }
 
 const ChannelData: React.FC = () => {
-  const activeChannel = useSelector((state: StateProps) => state.channel.name);
+  const activeChannel = useSelector((state: StateProps) => state.channels.channel.name);
 
   const messagesRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 

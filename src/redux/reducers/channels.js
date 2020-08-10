@@ -1,5 +1,3 @@
-import { createStore } from 'redux';
-
 const INITIAL_STATE = {
   channel: {
     name: 'chat-livre',
@@ -7,15 +5,12 @@ const INITIAL_STATE = {
   }
 };
 
-function channels(state = INITIAL_STATE, action) { //reducer
+
+export default function channels(state = INITIAL_STATE, action) { //reducer
   switch (action.type) {
-    case 'SWITCH': 
+    case 'SWITCH_CHANNEL': 
       return {...state, channel: {...state.channel, name: action.name, description: action.description}};
     default:
       return state;
   }
 }
-
-const store = createStore(channels);
-
-export default store;

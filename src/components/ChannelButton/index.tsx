@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { switchChannel } from '../../redux/actions';
 
 import { Container, HashTagIcon, InviteIcon, SettingsIcon } from './styles';
 
@@ -10,18 +11,20 @@ export interface Props {
 }
 
 interface StateProps {
-  channel: {
+  channels: {
+    channel: {
     name: string;
+    }
   }
 }
 
 
 const ChannelButton: React.FC<Props> = ({ channelName, description }) => {
-  const activeChannel = useSelector((state: StateProps) => state.channel.name);
+  const activeChannel = useSelector((state: StateProps) => state.channels.channel.name);
   const dispatch = useDispatch();
 
   function switchActiveChannel(channelName: string, description: string) {
-    dispatch({ type: "SWITCH", name: `${channelName}`, description: `${description}` });
+    dispatch(switchChannel(channelName, description));
   }
 
   return(

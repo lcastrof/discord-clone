@@ -4,15 +4,16 @@ import { useSelector } from 'react-redux';
 import { Container, HashTagIcon, Title, Separator, Description } from './styles';
 
 interface StateProps {
-  channel: {
-    name: string;
-    description: string;
+  channels: {
+    channel: {
+      name: string;
+      description: string;
+    }
   }
 }
-
 const ChannelInfo: React.FC = () => {
-  const activeChannel = useSelector((state: StateProps) => state.channel.name);
-  const activeChannelDescription = useSelector((state: StateProps) => state.channel.description);
+  const activeChannel = useSelector((state: StateProps) => state.channels.channel.name);
+  const activeChannelDescription = useSelector((state: StateProps) => state.channels.channel.description);
 
   return(
     <Container>
