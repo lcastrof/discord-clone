@@ -3,8 +3,18 @@ import React, {  useRef, useEffect } from 'react';
 import ChannelMessage, { Mention } from '../ChannelMessage';
 
 import { Container, Messages, InputWrapper, Input, InputIcon } from './styles';
+import { useSelector } from 'react-redux';
+
+interface StateProps {
+  channel: {
+    name: string;
+    description: string;
+  }
+}
 
 const ChannelData: React.FC = () => {
+  const activeChannel = useSelector((state: StateProps) => state.channel.name);
+
   const messagesRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 
   useEffect(() => { 
@@ -21,62 +31,62 @@ const ChannelData: React.FC = () => {
         <ChannelMessage 
           author="Lucas de Castro"
           date="20/07/2020"
-          content="Mensagem de teste"
+          content={`Mensagem de teste para o canal ${activeChannel}`}
         />
         <ChannelMessage 
           author="Lucas de Castro"
           date="20/07/2020"
-          content="Mensagem de teste"
+          content={`Mensagem de teste para o canal ${activeChannel}`}
         />
         <ChannelMessage 
           author="Lucas de Castro"
           date="20/07/2020"
-          content="Mensagem de teste"
+          content={`Mensagem de teste para o canal ${activeChannel}`}
         />
         <ChannelMessage 
           author="Lucas de Castro"
           date="20/07/2020"
-          content="Mensagem de teste"
+          content={`Mensagem de teste para o canal ${activeChannel}`}
         />
         <ChannelMessage 
           author="Lucas de Castro"
           date="20/07/2020"
-          content="Mensagem de teste"
+          content={`Mensagem de teste para o canal ${activeChannel}`}
         />
         <ChannelMessage 
           author="Lucas de Castro"
           date="20/07/2020"
-          content="Mensagem de teste"
+          content={`Mensagem de teste para o canal ${activeChannel}`}
         />
         <ChannelMessage 
           author="Lucas de Castro"
           date="20/07/2020"
-          content="Mensagem de teste"
+          content={`Mensagem de teste para o canal ${activeChannel}`}
         />
         <ChannelMessage 
           author="Lucas de Castro"
           date="20/07/2020"
-          content="Mensagem de teste"
+          content={`Mensagem de teste para o canal ${activeChannel}`}
         />
         <ChannelMessage 
           author="Lucas de Castro"
           date="20/07/2020"
-          content="Mensagem de teste"
+          content={`Mensagem de teste para o canal ${activeChannel}`}
         />
         <ChannelMessage 
           author="Lucas de Castro"
           date="20/07/2020"
-          content="Mensagem de teste"
+          content={`Mensagem de teste para o canal ${activeChannel}`}
         />
         <ChannelMessage 
           author="Lucas de Castro"
           date="20/07/2020"
-          content="Mensagem de teste"
+          content={`Mensagem de teste para o canal ${activeChannel}`}
         />
         <ChannelMessage 
           author="Lucas de Castro"
           date="20/07/2020"
-          content="Mensagem de teste"
+          content={`Mensagem de teste para o canal ${activeChannel}`}
         />
         
         <ChannelMessage 
