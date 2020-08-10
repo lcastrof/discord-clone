@@ -20,6 +20,7 @@ You can access the aplication following this link: https://lucid-payne-8b8c2f.ne
 ## 📑 Technologies
 * [ReactJS](https://pt-br.reactjs.org/)
 * [Typescript](https://www.typescriptlang.org/)
+* [Redux](https://redux.js.org/)
 * [Styled Components](https://styled-components.com/)
 * [ESLint](https://eslint.org/)
 * [Prettier](https://prettier.io/)
