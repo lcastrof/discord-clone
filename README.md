@@ -48,7 +48,7 @@ $ yarn start
 
 ## 📍 Ideas to implement
 - [ ] Add "scroll to new messages" button
-- [ ] Add state management (switch between servers and channels) with Redux or Context
+- [x] Add state management (switch between servers and channels) with Redux or Context
 
 ---
 Developed by Lucas de Castro Fernandino
