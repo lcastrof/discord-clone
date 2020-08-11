@@ -1,12 +1,14 @@
-import React, {  useRef, useEffect } from 'react';
+import React, {  useRef, useEffect, useCallback, useState } from 'react';
 
 import ChannelMessage, { Mention } from '../ChannelMessage';
 
-import { Container, Messages, InputWrapper, Input, InputIcon } from './styles';
+import { Container, Messages, InputWrapper, Input, InputIcon, Outlayer } from './styles';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/reducers';
 
 const ChannelData: React.FC = () => {
+  const [isScrolledUpwards, setIsScrolledUpwards] = useState(false);
+
   const selectChannelName = (state: RootState) => state.channels.channel.name;
   const activeChannel = useSelector(selectChannelName);
 
@@ -20,9 +22,27 @@ const ChannelData: React.FC = () => {
     }
   }, [messagesRef]);
 
+  const handleScrollUp = useCallback(() => {
+    const div = messagesRef.current;
+
+    if(div && div.scrollTop < 50) {
+      setIsScrolledUpwards(true);
+    } else {
+      setIsScrolledUpwards(false);
+    }
+  }, [messagesRef]);
+
+  const handleGoBack = useCallback(() => {
+    const div = messagesRef.current;
+
+    if(div) {
+      div.scrollTop = div.scrollHeight;
+    }
+  }, [messagesRef]);
+
   return (
     <Container>
-      <Messages ref={messagesRef}>
+      <Messages ref={messagesRef} onScroll={handleScrollUp}>
         <ChannelMessage 
           author="Lucas de Castro"
           date="20/07/2020"
@@ -97,9 +117,15 @@ const ChannelData: React.FC = () => {
           isBot
         />
       </Messages>
+      
       <InputWrapper>
         <Input type="text" placeholder="Conversar em #chat-livre" />
         <InputIcon />
+        {isScrolledUpwards && 
+          <Outlayer onClick={handleGoBack}>
+            Voltar para mensagens mais recentes
+          </Outlayer>
+        }
       </InputWrapper>
     </Container>
   );

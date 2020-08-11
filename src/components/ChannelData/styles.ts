@@ -34,6 +34,23 @@ export const Messages = styled.div`
   }
 `;
 
+export const Outlayer = styled.button`
+  background: var(--white);
+  opacity: 70%;
+  height: 20px;
+  cursor: pointer;
+  padding: 3px;
+  display: block;
+  position: absolute;
+  bottom: 70px;
+
+  width: 300px;
+  justify-content: space-between;
+
+  border-radius: 10px;
+  
+`;
+
 export const InputWrapper = styled.div`
   width: 100%;
 
