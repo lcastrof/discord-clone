@@ -47,7 +47,7 @@ $ yarn start
 ```
 
 ## 📍 Ideas to implement
-- [ ] Add "scroll to new messages" button
+- [x] Add "scroll to new messages" button
 - [x] Add state management (switch between servers and channels) with Redux or Context
 
 ---
