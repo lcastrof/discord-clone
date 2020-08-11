@@ -2,17 +2,11 @@ import React from 'react';
 
 import { Container, Title, ExpandIcon } from './styles';
 import { useSelector } from 'react-redux';
-
-interface StateProps {
-  servers: {
-    server: {
-      name: string;
-    }
-  }
-}
+import { RootState } from '../../redux/reducers';
 
 const ServerName: React.FC = () => {
-  const currentServer = useSelector(((state: StateProps) => state.servers.server.name))
+  const selectServerName = (state: RootState) => state.servers.server.name;
+  const currentServer = useSelector(selectServerName);
 
   return(
     <Container>

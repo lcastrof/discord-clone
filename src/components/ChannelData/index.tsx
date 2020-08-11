@@ -4,17 +4,11 @@ import ChannelMessage, { Mention } from '../ChannelMessage';
 
 import { Container, Messages, InputWrapper, Input, InputIcon } from './styles';
 import { useSelector } from 'react-redux';
-
-interface StateProps {
-  channels: {
-    channel: {
-    name: string;
-    }
-  }
-}
+import { RootState } from '../../redux/reducers';
 
 const ChannelData: React.FC = () => {
-  const activeChannel = useSelector((state: StateProps) => state.channels.channel.name);
+  const selectChannelName = (state: RootState) => state.channels.channel.name;
+  const activeChannel = useSelector(selectChannelName);
 
   const messagesRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 

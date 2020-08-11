@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { switchChannel } from '../../redux/actions';
 
 import { Container, HashTagIcon, InviteIcon, SettingsIcon } from './styles';
+import { RootState } from '../../redux/reducers';
 
 export interface Props {
   channelName: string;
@@ -10,17 +11,9 @@ export interface Props {
   selected?: boolean;
 }
 
-interface StateProps {
-  channels: {
-    channel: {
-    name: string;
-    }
-  }
-}
-
-
 const ChannelButton: React.FC<Props> = ({ channelName, description }) => {
-  const activeChannel = useSelector((state: StateProps) => state.channels.channel.name);
+  const selectChannelName = (state: RootState) => state.channels.channel.name;
+  const activeChannel = useSelector(selectChannelName);
   const dispatch = useDispatch();
 
   function switchActiveChannel(channelName: string, description: string) {
