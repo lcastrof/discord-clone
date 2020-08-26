@@ -49,6 +49,7 @@ $ yarn start
 ## 📍 Ideas to implement
 - [x] Add "scroll to new messages" button
 - [x] Add state management (switch between servers and channels) with Redux or Context
+- [x] Add skeleton loading (shimmer effect)
 
 ---
 Developed by Lucas de Castro Fernandino
