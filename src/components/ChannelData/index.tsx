@@ -8,6 +8,7 @@ import { RootState } from '../../redux/reducers';
 
 const ChannelData: React.FC = () => {
   const [isScrolledUpwards, setIsScrolledUpwards] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const selectChannelName = (state: RootState) => state.channels.channel.name;
   const activeChannel = useSelector(selectChannelName);
@@ -20,6 +21,12 @@ const ChannelData: React.FC = () => {
     if(div) {
       div.scrollTop = div.scrollHeight;
     }
+
+    const timer = setTimeout(() => {
+      setLoading(false)
+    }, 1500);
+
+    return () => clearTimeout(timer);
   }, [messagesRef]);
 
   const handleScrollUp = useCallback(() => {
@@ -47,61 +54,73 @@ const ChannelData: React.FC = () => {
           author="Lucas de Castro"
           date="20/07/2020"
           content={`Mensagem de teste para o canal ${activeChannel}`}
+          isLoading={loading}
         />
         <ChannelMessage 
           author="Lucas de Castro"
           date="20/07/2020"
           content={`Mensagem de teste para o canal ${activeChannel}`}
+          isLoading={loading}
         />
         <ChannelMessage 
           author="Lucas de Castro"
           date="20/07/2020"
           content={`Mensagem de teste para o canal ${activeChannel}`}
+          isLoading={loading}
         />
         <ChannelMessage 
           author="Lucas de Castro"
           date="20/07/2020"
           content={`Mensagem de teste para o canal ${activeChannel}`}
+          isLoading={loading}
         />
         <ChannelMessage 
           author="Lucas de Castro"
           date="20/07/2020"
           content={`Mensagem de teste para o canal ${activeChannel}`}
+          isLoading={loading}
         />
         <ChannelMessage 
           author="Lucas de Castro"
           date="20/07/2020"
           content={`Mensagem de teste para o canal ${activeChannel}`}
+          isLoading={loading}
         />
         <ChannelMessage 
           author="Lucas de Castro"
           date="20/07/2020"
           content={`Mensagem de teste para o canal ${activeChannel}`}
+          isLoading={loading}
         />
         <ChannelMessage 
           author="Lucas de Castro"
           date="20/07/2020"
           content={`Mensagem de teste para o canal ${activeChannel}`}
+          isLoading={loading}
         />
         <ChannelMessage 
           author="Lucas de Castro"
           date="20/07/2020"
           content={`Mensagem de teste para o canal ${activeChannel}`}
+          isLoading={loading}
         />
         <ChannelMessage 
           author="Lucas de Castro"
           date="20/07/2020"
           content={`Mensagem de teste para o canal ${activeChannel}`}
+          isLoading={loading}
         />
         <ChannelMessage 
           author="Lucas de Castro"
           date="20/07/2020"
           content={`Mensagem de teste para o canal ${activeChannel}`}
+          isLoading={loading}
         />
         <ChannelMessage 
           author="Lucas de Castro"
           date="20/07/2020"
           content={`Mensagem de teste para o canal ${activeChannel}`}
+          isLoading={loading}
         />
         
         <ChannelMessage 
@@ -115,6 +134,7 @@ const ChannelData: React.FC = () => {
           }
           hasMention
           isBot
+          isLoading={loading}
         />
       </Messages>
       

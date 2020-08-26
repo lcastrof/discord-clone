@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Container, Avatar, Message, Header, Content } from './styles';
+import MessageSkeleton from '../MessageSkeleton';
 export { Mention } from './styles';
 
 export interface Props {
@@ -9,6 +10,7 @@ export interface Props {
   content: string | React.ReactElement | React.ReactNode;
   hasMention?: boolean;
   isBot?: boolean;
+  isLoading?: boolean;
 }
 
 const ChannelMessage: React.FC<Props> = ({
@@ -16,23 +18,30 @@ const ChannelMessage: React.FC<Props> = ({
   date,
   content,
   hasMention,
-  isBot
+  isBot,
+  isLoading
 }) => {
   return (
-    <Container className={hasMention ? 'mention' : ''}>
-      <Avatar className={isBot ? 'bot' : ''} />
+    <>
+      {isLoading ? (
+        <MessageSkeleton />
+      ) : (
+        <Container className={hasMention ? 'mention' : ''}>
+          <Avatar className={isBot ? 'bot' : ''} />
 
-      <Message>
-        <Header>
-          <strong>{author}</strong>
+          <Message>
+            <Header>
+              <strong>{author}</strong>
 
-          {isBot && <span>Bot</span>}
+              {isBot && <span>Bot</span>}
 
-          <time>{date}</time>
-        </Header>
-        <Content>{content}</Content>
-      </Message>
-    </Container>
+              <time>{date}</time>
+            </Header>
+            <Content>{content}</Content>
+          </Message>
+        </Container>
+      )}
+    </>
   );
 }
 
