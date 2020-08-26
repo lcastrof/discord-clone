@@ -10,7 +10,7 @@
 * [Ideas](#-ideas-to-implement)
 
 ## 📜 About the project
-<p>This is a project made with the intention of training CSS's grid and flexbox.</p>
+<p>This is a project made with the intention of training CSS's grid and flexbox and to study Redux in React applications.</p>
 
 The project was made based on this layout on figma: [layout](https://www.figma.com/file/Mnr08FcriAibSOheL0XvrY/Discord-Clone?node-id=0%3A1).
 
